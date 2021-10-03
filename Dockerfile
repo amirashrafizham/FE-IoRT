@@ -5,12 +5,12 @@ WORKDIR /app
 
 # We copy the .csproj of our app to root and 
 # restore the dependencies of the project.
-COPY /app/FE-IoRT.csproj .
-RUN dotnet restore "FE-IoRT.csproj"
+COPY *.csproj ./
+RUN dotnet restore
 
 # We proceed by copying all the contents in
 # the main project folder to root and build it
-COPY /FE-IoRT .
+COPY . ./
 RUN dotnet build "FE-IoRT.csproj" -c Release -o /build
 
 # Once we're done building, we'll publish the project
