@@ -24,11 +24,11 @@
     <div class="row">
         <div class="col-sm-12 my-5">
             <RadzenChart>
-                <RadzenBarSeries Data="@accelerometerX" CategoryProperty="Parameter" Title="X-axis"
+                <RadzenBarSeries Data="@accelerometerX" CategoryProperty="Parameter" Title="Roll"
                     LineType="LineType.Dashed" Fill=#479cc8 ValueProperty="Accelerometer" />
-                <RadzenBarSeries Data="@accelerometerY" CategoryProperty="Parameter" Title="Y-axis"
+                <RadzenBarSeries Data="@accelerometerY" CategoryProperty="Parameter" Title="Pitch"
                     ValueProperty="Accelerometer" />
-                <RadzenBarSeries Data="@accelerometerZ" CategoryProperty="Parameter" Title="Z-axis"
+                <RadzenBarSeries Data="@accelerometerZ" CategoryProperty="Parameter" Title="Yaw"
                     ValueProperty="Accelerometer" />
                 <RadzenValueAxis Formatter="@FormatAsG">
                     <RadzenGridLines Visible="true" />
