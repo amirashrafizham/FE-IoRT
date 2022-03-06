@@ -1,0 +1,71 @@
+@page "/gyroscope"
+@using System.Globalization
+
+@inject HttpClient http
+
+<div class="container border border-3 rounded">
+
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" @onclick="@PostCommandAPI" value="Get Robot Orientation" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" class="col-sm-2"
+            Text=@($"{String.Format("{0}g",accelerometer.X)}") />
+        <RadzenBadge BadgeStyle="BadgeStyle.Info" class="col-sm-2" Text=@($"{String.Format("{0}g",accelerometer.Y)}") />
+        <RadzenBadge class="col-sm-2" Text=@($"{String.Format("{0}g",accelerometer.Z)}") />
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12 my-5">
+            <RadzenChart>
+                <RadzenBarSeries Data="@accelerometerX" CategoryProperty="Parameter" Title="X-axis"
+                    LineType="LineType.Dashed" Fill=#479cc8 ValueProperty="Accelerometer" />
+                <RadzenBarSeries Data="@accelerometerY" CategoryProperty="Parameter" Title="Y-axis"
+                    ValueProperty="Accelerometer" />
+                <RadzenBarSeries Data="@accelerometerZ" CategoryProperty="Parameter" Title="Z-axis"
+                    ValueProperty="Accelerometer" />
+                <RadzenValueAxis Formatter="@FormatAsG">
+                    <RadzenGridLines Visible="true" />
+                    <RadzenAxisTitle Text="Angular rate in g" />
+                </RadzenValueAxis>
+                <RadzenBarOptions Radius="5" />
+            </RadzenChart>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    class DataItem
+    {
+        public string Parameter { get; set; }
+        public double Accelerometer { get; set; }
+    }
+
+    string FormatAsG(object value)
+    {
+        string stringNumber = ((double)value).ToString();
+        return stringNumber + "g";
+    }
+    private AccelerometerModel accelerometer = new AccelerometerModel();
+
+    DataItem[] accelerometerX = new DataItem[] { new DataItem { Parameter = "X-Axis", Accelerometer = 0 } };
+    DataItem[] accelerometerY = new DataItem[] { new DataItem { Parameter = "Y-Axis", Accelerometer = 0 } };
+    DataItem[] accelerometerZ = new DataItem[] { new DataItem { Parameter = "Z-Axis", Accelerometer = 0 } };
+
+
+    protected async Task PostCommandAPI()
+    {
+        accelerometer = await http.GetFromJsonAsync<AccelerometerModel>("http://192.168.1.7:5000/PiSenseHat/GetAcceleration");
+        accelerometerX = new DataItem[] { new DataItem { Parameter = "X-Axis", Accelerometer = accelerometer.X } };
+        accelerometerY = new DataItem[] { new DataItem { Parameter = "Y-Axis", Accelerometer = accelerometer.Y } };
+        accelerometerZ = new DataItem[] { new DataItem { Parameter = "Z-Axis", Accelerometer = accelerometer.Z } };
+    }
+}

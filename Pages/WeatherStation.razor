@@ -1,0 +1,114 @@
+@page "/weatherstation"
+
+@using System.Globalization
+@inject HttpClient http
+
+@if (weather == null)
+{
+    <p><em>Loading...</em></p>
+}
+
+<div class="container border border-3 rounded">
+
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" @onclick="@PostCommandAPI" value="Get Weather Metrics" />
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <RadzenBadge Text=@($"{String.Format("{0}\x00B0C",weather.Temperature1)}") />
+            <RadzenChart>
+                <RadzenColumnSeries Data="@tempSensor1" CategoryProperty="Parameter" LineType="LineType.Dashed"
+                    Title="Temperature 1" ValueProperty="WeatherValue" Fill=#ff6d41 />
+                <RadzenValueAxis Formatter="@FormatAsCelcius">
+                    <RadzenColumnOptions Radius="5" />
+                    <RadzenGridLines Visible="false" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </div>
+        <div class="col-sm-3">
+            <RadzenBadge Text=@($"{String.Format("{0}\x00B0C",weather.Temperature2)}") />
+            <RadzenChart>
+                <RadzenColumnSeries Data="@tempSensor2" CategoryProperty="Parameter" LineType="LineType.Dashed"
+                    Title="Temperature 2" ValueProperty="WeatherValue" Fill=#ff6d41 />
+                <RadzenColumnOptions Radius="5" />
+                <RadzenValueAxis Formatter="@FormatAsCelcius">
+                    <RadzenGridLines Visible="false" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </div>
+        <div class="col-sm-3">
+            <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Text=@($"{String.Format("{0}%",weather.Humidity)}") />
+            <RadzenChart>
+                <RadzenColumnSeries Data="@humidity" CategoryProperty="Parameter" LineType="LineType.Dashed"
+                    Title="Humidity" ValueProperty="WeatherValue" Fill=#479cc8 />
+                <RadzenColumnOptions Radius="5" />
+                <RadzenValueAxis Formatter="@FormatAsPercentage">
+                    <RadzenGridLines Visible="false" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </div>
+        <div class="col-sm-3">
+            <RadzenBadge BadgeStyle="BadgeStyle.Warning" Text=@($"{String.Format("{0}bar",weather.Pressure)}") />
+            <RadzenChart>
+                <RadzenColumnSeries Data="@pressure" CategoryProperty="Parameter" LineType="LineType.Dashed"
+                    Title="Pressure" ValueProperty="WeatherValue" Fill=#e6c54f />
+                <RadzenColumnOptions Radius="5" />
+                <RadzenValueAxis Formatter="@FormatAsBar">
+                    <RadzenGridLines Visible="false" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </div>
+
+    </div>
+
+</div>
+
+
+@code {
+    class DataItem
+    {
+        public string Parameter { get; set; }
+        public double WeatherValue { get; set; }
+    }
+    string FormatAsCelcius(object value)
+    {
+        string stringNumber = ((double)value).ToString();
+        return stringNumber + "\x00B0" + "C";
+    }
+
+    string FormatAsPercentage(object value)
+    {
+        string stringNumber = ((double)value).ToString();
+        return stringNumber + "%";
+    }
+
+    string FormatAsBar(object value)
+    {
+        string stringNumber = ((double)value).ToString();
+        return stringNumber + "bar";
+    }
+
+    DataItem[] tempSensor1 = new DataItem[] { new DataItem { Parameter = "Sensor1", WeatherValue = 0 } };
+    DataItem[] tempSensor2 = new DataItem[] { new DataItem { Parameter = "Sensor2", WeatherValue = 0 } };
+    DataItem[] humidity = new DataItem[] { new DataItem { Parameter = "Humidity", WeatherValue = 0 } };
+    DataItem[] pressure = new DataItem[] { new DataItem { Parameter = "Pressure", WeatherValue = 0 } };
+
+    private WeatherModel weather = new WeatherModel();
+
+    protected async Task PostCommandAPI()
+    {
+        weather = await http.GetFromJsonAsync<WeatherModel>("http://192.168.1.7:5000/PiSenseHat/GetWeather");
+        tempSensor1 = new DataItem[] { new DataItem { Parameter = "Temp sensor 1", WeatherValue = weather.Temperature1 } };
+        tempSensor2 = new DataItem[] { new DataItem { Parameter = "Temp sensor 2", WeatherValue = weather.Temperature2 } };
+        humidity = new DataItem[] { new DataItem { Parameter = "Humidity", WeatherValue = weather.Humidity } };
+        pressure = new DataItem[] { new DataItem { Parameter = "Pressure", WeatherValue = weather.Pressure } };
+    }
+}
