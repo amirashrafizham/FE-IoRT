@@ -31,6 +31,8 @@ A dashboard that allows its user to :
 2. Dotnet publish
 3. Docker build
 
+![Screenshot 2022-03-07 232948](https://user-images.githubusercontent.com/59201954/157064781-43e44d84-d6b8-48d5-ae83-64f3ec48f372.png)
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :artificial_satellite: Connectivity
