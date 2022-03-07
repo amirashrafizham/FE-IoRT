@@ -1,5 +1,8 @@
-@page "/slider"
+@page "/robot"
 @using System.Collections
+
+@inject HttpClient http
+
 <div class="container border border-3 rounded">
     
     <div class="d-flex justify-content-center">
@@ -33,22 +36,22 @@
     <br>
     <div class="justify-content-center">
         <div class="d-flex justify-content-center" >
-            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@TurnLeft
                 Text="Turn Left" />
-            <RadzenButton style="width: 180px; background-color:#6c41ffcf; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#6c41ffcf; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@Forward
                 Text="Forward" />
-            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@TurnRight
                 Text="Turn Right" />
         </div>
         <div>
             <img src="images/rover.png" alt="" style="display:block; margin:auto;" width="200" height="150">
         </div>
         <div class="d-flex justify-content-center">
-            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@ReverseLeft
                 Text="Reverse Left" />
-            <RadzenButton style="width: 180px; background-color:#414bffcf;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#414bffcf;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@Reverse
                 Text="Reverse" />
-            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@ReverseRight
                 Text="Reverse Right" />
         </div>
     </div>
@@ -57,8 +60,10 @@
 
 
 @code {
-    static int speed = 0;
-    static int time = 0;
+    int speed = 0;
+    int time = 0;
+
+    DistanceModel distance = new DistanceModel();
 
     void OnChange(dynamic value, string name)
     {
@@ -66,11 +71,53 @@
         Console.WriteLine(str);
     }
     bool busy;
-
-    async Task OnBusyClick()
+    protected async Task Forward()
     {
+        distance.Speed = speed;
+        distance.Time = time;
         busy = true;
-        await Task.Delay(time*1000);
+        var result = await http.PostAsJsonAsync("/RobotWheel/Forward",distance);
         busy = false;
     }
+    protected async Task TurnRight()
+    {
+        distance.Speed = speed;
+        distance.Time = time;
+        busy = true;
+        var result = await http.PostAsJsonAsync("/RobotWheel/TurnRight",distance);
+        busy = false;
+    }
+    protected async Task TurnLeft()
+    {
+        distance.Speed = speed;
+        distance.Time = time;
+        busy = true;
+        var result = await http.PostAsJsonAsync("/RobotWheel/TurnLeft",distance);
+        busy = false;
+    }
+    protected async Task Reverse()
+    {
+        distance.Speed = speed;
+        distance.Time = time;
+        busy = true;
+        var result = await http.PostAsJsonAsync("/RobotWheel/Reverse",distance);
+        busy = false;
+    }
+    protected async Task ReverseRight()
+    {
+        distance.Speed = speed;
+        distance.Time = time;
+        busy = true;
+        var result = await http.PostAsJsonAsync("/RobotWheel/ReverseRight",distance);
+        busy = false;
+    }
+    protected async Task ReverseLeft()
+    {
+        distance.Speed = speed;
+        distance.Time = time;
+        busy = true;
+        var result = await http.PostAsJsonAsync("/RobotWheel/ReverseLeft",distance);
+        busy = false;
+    }
+
 }

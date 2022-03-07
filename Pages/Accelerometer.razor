@@ -63,7 +63,7 @@
 
     protected async Task PostCommandAPI()
     {
-        accelerometer = await http.GetFromJsonAsync<AccelerometerModel>("http://192.168.1.7:5000/PiSenseHat/GetAcceleration");
+        accelerometer = await http.GetFromJsonAsync<AccelerometerModel>("/PiSenseHat/GetAcceleration");
         accelerometerX = new DataItem[] { new DataItem { Parameter = "X-Axis", Accelerometer = accelerometer.X } };
         accelerometerY = new DataItem[] { new DataItem { Parameter = "Y-Axis", Accelerometer = accelerometer.Y } };
         accelerometerZ = new DataItem[] { new DataItem { Parameter = "Z-Axis", Accelerometer = accelerometer.Z } };

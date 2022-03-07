@@ -105,7 +105,7 @@
 
     protected async Task PostCommandAPI()
     {
-        weather = await http.GetFromJsonAsync<WeatherModel>("http://192.168.1.7:5000/PiSenseHat/GetWeather");
+        weather = await http.GetFromJsonAsync<WeatherModel>("/PiSenseHat/GetWeather");
         tempSensor1 = new DataItem[] { new DataItem { Parameter = "Temp sensor 1", WeatherValue = weather.Temperature1 } };
         tempSensor2 = new DataItem[] { new DataItem { Parameter = "Temp sensor 2", WeatherValue = weather.Temperature2 } };
         humidity = new DataItem[] { new DataItem { Parameter = "Humidity", WeatherValue = weather.Humidity } };
