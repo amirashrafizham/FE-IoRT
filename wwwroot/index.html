@@ -20,10 +20,23 @@
   </head>
 
   <body>
-    <div id="app">Loading...</div>
-
+    <div id="app">
+      <div
+        class="spinner-border text-primary"
+        style="
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        "
+        role="status"
+      ></div>
+    </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
   </body>
 </html>
