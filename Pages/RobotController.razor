@@ -1,0 +1,76 @@
+@page "/slider"
+@using System.Collections
+<div class="container border border-3 rounded">
+    
+    <div class="d-flex justify-content-center">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" value="Robot Control Panel" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-3 justify-content-center">
+        <div class="col-lg-6 p-3">
+            <RadzenCard>
+                <h6>Speed Setting</h6>
+                <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Text=@($"{String.Format("{0} cm/s",speed)}") style="font-size: large;" />
+                <br>
+                <RadzenSlider @bind-Value=@speed Min="0" Max="50" TValue="int" Step="10" Change=@(args => OnChange(args, "Speed"))
+                    Class="w-100" />
+            </RadzenCard>
+        </div>
+        <div class="col-lg-6 p-3">
+            <RadzenCard>
+                <h6>Time Setting</h6>
+                <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Text=@($"{String.Format("{0} s",time)}") style="font-size: large;" />
+                <br>
+                <RadzenSlider @bind-Value=@time Min="0" Max="5" TValue="int" Step="1" Change=@(args => OnChange(args, "Time"))
+                    Class="w-100" />
+            </RadzenCard>
+        </div>
+    </div>
+    <br>
+    <div class="justify-content-center">
+        <div class="d-flex justify-content-center" >
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Turn Left" />
+            <RadzenButton style="width: 180px; background-color:#6c41ffcf; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Forward" />
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Turn Right" />
+        </div>
+        <div>
+            <img src="images/rover.png" alt="" style="display:block; margin:auto;" width="200" height="150">
+        </div>
+        <div class="d-flex justify-content-center">
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse Left" />
+            <RadzenButton style="width: 180px; background-color:#414bffcf;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse" />
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse Right" />
+        </div>
+    </div>
+<br>
+</div>
+
+
+@code {
+    static int speed = 0;
+    static int time = 0;
+
+    void OnChange(dynamic value, string name)
+    {
+        var str = value is IEnumerable ? string.Join(", ", value) : value;
+        Console.WriteLine(str);
+    }
+    bool busy;
+
+    async Task OnBusyClick()
+    {
+        busy = true;
+        await Task.Delay(time*1000);
+        busy = false;
+    }
+}
