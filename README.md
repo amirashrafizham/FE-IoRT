@@ -7,6 +7,9 @@
 A dashboard that allows its user to :
 - Manuever a robot through a web browser
 - Retrieve IoT sensor data and display on the dashboard
+![MicrosoftTeams-image (4)](https://user-images.githubusercontent.com/59201954/157059323-35ff4bd5-6491-4976-825f-8644b4d21c55.png)
+![MicrosoftTeams-image (6)](https://user-images.gi![MicrosoftTeams-image (5)](https://user-images.githubusercontent.com/59201954/157059400-f39ffc91-b9fc-4424-b753-5277d8b28ca4.png)
+![MicrosoftTeams-image (5)](https://user-images.githubusercontent.com/59201954/157059453-b815ad71-ef45-4713-af7b-1b13b3cc3085.png)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
