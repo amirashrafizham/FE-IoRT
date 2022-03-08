@@ -31,7 +31,7 @@ This is a Blazor WebAssembly dashboard project and has the following features :
 |---------------------|--------------------------------------------------------------------------------------------------|
 | Blazor WebAssembly  |  Front End SPA framework to build the dashboard                                                  |
 | RaspberryPi         |  Server to host the Web and to host the Azure DevOps agent for CICD                              |
-| Docker              |  Containerization platform to package the Web                                                    |
+| Docker              |  Containerization platform to package the front-end codes                                        |
 | Azure DevOps        |  Continuous Integration/Continuous Deployment platform                                           |
 | Nginx               |  Web server to host Dashboard for client-side serving                                            |
 | Pi-Top Robotics Kit |  Hardware to maneuver the robot by Pi-Top - Pi-Top OS is used to integrate with the peripherals  |
