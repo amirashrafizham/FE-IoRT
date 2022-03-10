@@ -15,5 +15,5 @@ WORKDIR /usr/share/nginx/html
 # We'll copy all the contents from wwwroot in the publish
 # folder into nginx/html for nginx to serve. The destination
 # should be the same as what you set in the nginx.conf.
-COPY --from=publish /publish/wwwroot /usr/local/webapp/nginx/html
+COPY --from=build-env /publish/wwwroot /usr/local/webapp/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
