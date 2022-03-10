@@ -5,21 +5,15 @@ WORKDIR /app
 
 # We copy the .csproj of our app to root and 
 # restore the dependencies of the project.
-COPY *.csproj ./
+COPY . .
 RUN dotnet restore
-
-# Once we're done building, we'll publish the project
-# to the publish folder 
-FROM build-env AS publish
 RUN dotnet publish "FE-IoRT.csproj" -c Release -o /publish
 
-# We then get the base image for Nginx and set the 
-# work directory 
 FROM nginx:alpine AS final
 WORKDIR /usr/share/nginx/html
 
 # We'll copy all the contents from wwwroot in the publish
 # folder into nginx/html for nginx to serve. The destination
 # should be the same as what you set in the nginx.conf.
-COPY --from=publish /publish/wwwroot /usr/local/webapp/nginx/html
+COPY --from=build-env /publish/wwwroot /usr/local/webapp/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
