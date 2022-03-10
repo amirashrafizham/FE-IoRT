@@ -91,10 +91,17 @@ These are the steps to build and release the code to the RaspberryPi Server
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :artificial_satellite: Connectivity
-Due to the large download size of Blazor Wasm, an Ethernet cable connection is required to connect the Ipad to the robot for network latency prevention. To access the dashboard, simply point the IP address of the RaspberryPi with port 5005
-   
-![FEConnectivity](https://user-images.githubusercontent.com/59201954/157173622-7bf5eb8b-f7e1-481d-a3a1-0305078c7fea.png)
 
+To connect to the dashboard, ensure the client device and the RaspberryPi are within the same wi-fi network. Next point the IP address of the RaspberryPi with port 5005 on the web browser   
+![Screenshot 2022-03-10 181115](https://user-images.githubusercontent.com/59201954/157641971-4c602f13-9307-4d59-bbfb-fb91f93c730a.png)
+
+   
+   
+To connect to the dashboard without any wi-fi network, use an Ethernet cable connection to prevent network latency as the download size of .NET 5 Blazor Wasm is large. To access the dashboard, simply plug the ethernet cable to the client device and point the hostname of the RaspberryPi with port 5005 on the web browser
+![Screenshot 2022-03-10 182338](https://user-images.githubusercontent.com/59201954/157642218-4b06e029-31ad-4001-9929-9728aa58bb24.png)
+
+
+  
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :film_strip: Demo
