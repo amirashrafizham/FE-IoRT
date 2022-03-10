@@ -8,11 +8,6 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
-# We proceed by copying all the contents in
-# the main project folder to root and build it
-COPY . ./
-RUN dotnet build "FE-IoRT.csproj" -c Release -o /build
-
 # Once we're done building, we'll publish the project
 # to the publish folder 
 FROM build-env AS publish
