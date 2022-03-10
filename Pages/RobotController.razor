@@ -19,7 +19,7 @@
                 <h6>Speed Setting</h6>
                 <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Text=@($"{String.Format("{0} cm/s",speed)}") style="font-size: large;" />
                 <br>
-                <RadzenSlider @bind-Value=@speed Min="0" Max="50" TValue="int" Step="10" Change=@(args => OnChange(args, "Speed"))
+                <RadzenSlider @bind-Value=@speed Min="0" Max="50" TValue="int" Step="5" Change=@(args => OnChange(args, "Speed"))
                     Class="w-100" />
             </RadzenCard>
         </div>

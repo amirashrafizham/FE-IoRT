@@ -99,6 +99,7 @@ Due to the large download size of Blazor Wasm, an Ethernet cable connection is r
 
 ## :film_strip: Demo
 
+<h6>Will be updated soon </h6>
+  
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
 
