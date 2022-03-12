@@ -106,7 +106,9 @@ To connect to the dashboard without any wi-fi network, use an Ethernet cable con
 
 ## :film_strip: Demo
 
-<h6>Will be updated soon </h6>
+<h6>Controlling the rover from a mobile device</h6>
+   
+![1_0_GIF_1](https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF)
   
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
