@@ -76,7 +76,6 @@ These are the steps to build and release the code to the RaspberryPi Server
 1. From local machine, push the latest code update to Github
 2. Azure Pipelines will automatically trigger the CI pipeline to build and containerize the code with Dockerfile. The Dockerfile has the following main commands
    - `dotnet restore`
-   - `dotnet build`
    - `dotnet publish`
    - Copy all files into Nginx runtime
 3. Push to Dockerhub for backup
