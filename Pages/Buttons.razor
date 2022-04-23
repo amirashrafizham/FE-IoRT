@@ -1,0 +1,44 @@
+@page "/buttons"
+
+<div class="button-demo">
+    <div class="row mb-4">
+        <div class="col">
+            <RadzenButton style="width: 180px; background-color:#6c41ff94" IsBusy=@busy Click=@OnBusyClick
+                Text="Turn Left" />
+            <RadzenButton style="width: 180px; background-color:#6c41ffcf" IsBusy=@busy Click=@OnBusyClick
+                Text="Forward" />
+            <RadzenButton style="width: 180px; background-color:#6c41ff94" IsBusy=@busy Click=@OnBusyClick
+                Text="Turn Right" />
+        </div>
+    </div>
+</div>
+
+<div class="button-demo">
+    <div class="row mb-4">
+        <div class="col">
+            <RadzenButton style="width: 180px; background-color:#414bff94" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse Left" />
+            <RadzenButton style="width: 180px; background-color:#414bffcf" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse" />
+            <RadzenButton style="width: 180px; background-color:#414bff94" IsBusy=@busy Click=@OnBusyClick
+                Text="Reverse Right" />
+        </div>
+    </div>
+</div>
+
+
+@code {
+    bool busy;
+
+    void OnClick(string buttonName)
+    {
+        Console.WriteLine($"{buttonName} clicked");
+    }
+
+    async Task OnBusyClick()
+    {
+        busy = true;
+        await Task.Delay(2000);
+        busy = false;
+    }
+}

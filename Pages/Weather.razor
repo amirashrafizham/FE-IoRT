@@ -1,0 +1,29 @@
+@page "/weather"
+
+<h1>Weather Station page!</h1>
+
+@page "/addcommand"
+@inject HttpClient http
+
+<h3>@weather.Temperature1</h3>
+<h3>@weather.Temperature2</h3>
+<h3>@weather.Humidity</h3>
+<h3>@weather.Pressure</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="button" class="btn btn-success" @onclick="@PostCommandAPI" value="GetWeatherValues" />
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private WeatherModel weather = new WeatherModel();
+
+    protected async Task PostCommandAPI()
+    {
+        weather = await http.GetFromJsonAsync<WeatherModel>("http://localhost:5000/PiSenseHat/TestWeatherValues");
+    }
+}
