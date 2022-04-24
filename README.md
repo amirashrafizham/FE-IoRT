@@ -7,11 +7,24 @@
 
 ## :thought_balloon: About
 This is a Blazor WebAssembly dashboard project and has the following features :
-- The user is able to remotely manoeuvre a robot through a web browser
-- The user is able to retrieve and monitor IoT sensor data displayed on the dashboard
+- The user is able to remotely manoeuvre a robot through a web browser [Feb 2022 Release]
+- The user is able to retrieve and monitor IoT sensor data displayed on the dashboard [Feb 2022 Release]
+- The user is stream the video camera in real-time [Apr 2022 Release]
 
 
 ![MicrosoftTeams-image (4)](https://user-images.githubusercontent.com/59201954/157059323-35ff4bd5-6491-4976-825f-8644b4d21c55.png)
+
+## :film_strip: Demo
+
+<h6>Controlling the rover from a mobile device</h6>
+
+<img src="https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF" height=500px width=600px>
+
+   
+<h6>Real-time camera stream from a tablet</h6>
+   
+<img src="https://user-images.githubusercontent.com/59201954/164914069-fded2c8c-8261-4e46-9780-7ad273335cc5.GIF" height=500px width=600px>
+
 
 ### Features to be added in future release  
 
@@ -103,19 +116,6 @@ To connect to the dashboard without any wi-fi network, use an Ethernet cable con
   
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## :film_strip: Demo
-
-<h6>Controlling the rover from a mobile device</h6>
-   
-![1_0_GIF_1](https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF)
-
-   
-<h6>Real-time camera stream</h6>
-   
-![IMB_Q3oEyO](https://user-images.githubusercontent.com/59201954/164914069-fded2c8c-8261-4e46-9780-7ad273335cc5.GIF)
-
-   
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
 
