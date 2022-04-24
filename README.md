@@ -100,7 +100,7 @@ Due to the limitation of the 32-bit Pi-Top OS as of Apr 2022, the project will b
    - `docker stop` old image
    - `docker remove` old image
    - `docker run` new image with privileged access, detached mode, restart-unless-stop and point to port 5005
-   - `docker remove` images on the server with <None> label
+   - `docker remove` images on the server with `<None>` label
 
 ![Screenshot 2022-03-07 232948](https://user-images.githubusercontent.com/59201954/157064781-43e44d84-d6b8-48d5-ae83-64f3ec48f372.png)
 
