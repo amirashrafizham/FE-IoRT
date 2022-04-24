@@ -18,12 +18,12 @@ This is a Blazor WebAssembly dashboard project and has the following features :
 
 <h6>Controlling the rover from a mobile device</h6>
 
-<img src="https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF" height=500px width=600px>
+<img src="https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF" height=400px width=600px>
 
    
 <h6>Real-time camera stream from a tablet</h6>
    
-<img src="https://user-images.githubusercontent.com/59201954/164914069-fded2c8c-8261-4e46-9780-7ad273335cc5.GIF" height=500px width=600px>
+<img src="https://user-images.githubusercontent.com/59201954/164914069-fded2c8c-8261-4e46-9780-7ad273335cc5.GIF" height=400px width=600px>
 
 
 ### Features to be added in future release  
