@@ -7,9 +7,9 @@
 
 ## :thought_balloon: About
 This is a Blazor WebAssembly dashboard project and has the following features :
-- The user is able to remotely manoeuvre a robot through a web browser [Feb 2022 Release]
-- The user is able to retrieve and monitor IoT sensor data displayed on the dashboard [Feb 2022 Release]
-- The user is stream the video camera in real-time [Apr 2022 Release]
+- Remotely manoeuvre a robot through a web browser [Feb 2022 Release]
+- Retrieve and monitor IoT sensor data displayed on the dashboard [Feb 2022 Release]
+- Camera video streaming in real-time [Apr 2022 Release]
 
 
 ![MicrosoftTeams-image (4)](https://user-images.githubusercontent.com/59201954/157059323-35ff4bd5-6491-4976-825f-8644b4d21c55.png)
@@ -85,14 +85,18 @@ The following hardware is required prior to installing the software
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 ## :rocket:	CICD
-These are the steps to build and release the code to the RaspberryPi Server
+Due to the limitation of the 32-bit Pi-Top OS as of Apr 2022, the project will be built using .NET 6 on local machine and configured to .NET 5 on the server. These are the steps to build and release the code to the RaspberryPi Server
+
 1. From local machine, push the latest code update to Github
-2. Azure Pipelines will automatically trigger the CI pipeline to build and containerize the code with Dockerfile. The Dockerfile has the following main commands
-   - `dotnet restore`
-   - `dotnet publish`
-   - Copy all files into Nginx runtime
-3. Push to Dockerhub for backup
-4. Azure Pipelines will then automatically trigger the CD pipeline with the following main commands
+2. Azure Pipelines will automatically trigger the CI pipeline
+3. The CI pipeline will download `.csproj` and `Dockerfile.dev` hosted on Azure DevOps secure file. These files are configured for .NET5
+4. Overwrite `.csproj` and store `Dockerfile.dev` from `$(Agent.TempDirectory)` to `$(Build.Repository.LocalPath)`
+5. Build and containerize the code using Dockerfile.dev. The Dockerfile has the following main commands
+     - `dotnet restore`
+     - `dotnet publish`
+     - Copy all files into Nginx runtime
+6. Push to Dockerhub for backup
+7. Azure Pipelines will then automatically trigger the CD pipeline with the following main commands
    - `docker stop` old image
    - `docker remove` old image
    - `docker run` new image with privileged access, detached mode, restart-unless-stop and point to port 5005
