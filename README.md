@@ -5,6 +5,7 @@
 ![Azure DevOps builds](https://img.shields.io/azure-devops/build/amirashrafizham7/3cd2d062-7beb-450b-835a-acb34a7cc906/5)
 ![Azure DevOps releases](https://vsrm.dev.azure.com/amirashrafizham7/_apis/public/Release/badge/3cd2d062-7beb-450b-835a-acb34a7cc906/5/5)
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=amirashrafizham_FE-IoRT)](https://sonarcloud.io/summary/new_code?id=amirashrafizham_FE-IoRT)
 ## :thought_balloon: About
 This is a Blazor WebAssembly dashboard project and has the following features :
 - Remotely manoeuvre a robot through a web browser [Feb 2022 Release]
