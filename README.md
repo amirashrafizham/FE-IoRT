@@ -37,6 +37,11 @@ This is a Blazor WebAssembly dashboard project and has the following features :
 2. **Weather Station module**
    - Line chart to monitor sensor trends for T-10 seconds 
 
+3. **DevSecOps*
+   - Perform Static Code Analysis with SonarCloud :white_check_mark:
+   - Perform unit testing with XUnit
+   - Integrate unit testing into CI Pipeline and generate code coverage
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :hammer_and_wrench: Tech Stack
