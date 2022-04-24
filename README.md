@@ -1,11 +1,12 @@
 # :robot: Blazor Robotics IoT Dashboard
 
 [![Build Status](https://dev.azure.com/amirashrafizham7/IoT%20RaspberryPI/_apis/build/status/Frontend%20-%20IoRT%20Raspberry%20Pi?branchName=master)](https://dev.azure.com/amirashrafizham7/IoT%20RaspberryPI/_build/latest?definitionId=5&branchName=master) 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=amirashrafizham_FE-IoRT&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=amirashrafizham_FE-IoRT)
+
 
 ![Azure DevOps builds](https://img.shields.io/azure-devops/build/amirashrafizham7/3cd2d062-7beb-450b-835a-acb34a7cc906/5)
 ![Azure DevOps releases](https://vsrm.dev.azure.com/amirashrafizham7/_apis/public/Release/badge/3cd2d062-7beb-450b-835a-acb34a7cc906/5/5)
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=amirashrafizham_FE-IoRT)](https://sonarcloud.io/summary/new_code?id=amirashrafizham_FE-IoRT)
 ## :thought_balloon: About
 This is a Blazor WebAssembly dashboard project and has the following features :
 - Remotely manoeuvre a robot through a web browser [Feb 2022 Release]
