@@ -20,7 +20,7 @@ This is a Blazor WebAssembly dashboard project and has the following features :
 
 <h6>Controlling the rover from a mobile device</h6>
 
-<img src="https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF" max-height=100% width=100%>
+<img src="https://user-images.githubusercontent.com/59201954/158006331-2770bfc3-a9bc-4d32-8133-aac5ad348dfb.GIF" height=100% width=100%>
 
    
 <h6>Real-time camera stream from a tablet</h6>
