@@ -12,9 +12,6 @@
             </div>
         </div>
     </div>
-    <div class="justify-content-center">
-        <img src="images/rover.png" alt="" style="display:block; margin:auto;" width="250" height="200">
-    </div>
     <div class="row px-3 justify-content-center">
         <div class="col-lg-6 p-3">
             <RadzenCard>
@@ -45,12 +42,15 @@
             <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@TurnRight
                 Text="Turn Right" />
         </div>
+        <div class="justify-content-center">
+            <img src="images/rover.png" alt="" style="display:block; margin:auto;" width="250" height="200">
+        </div>
         <br>
-        <div class="row justify-content-center">
+@*         <div class="row justify-content-center">
                 <div class="column">
                     <img src="http://pi-top.local:8070/video.mjpg" alt="" style="display:block; margin:auto;" width="300" height="250" >
                 </div>
-        </div>
+        </div> *@
         <br>
         <div class="d-flex justify-content-center">
             <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;" IsBusy=@busy Click=@ReverseLeft
