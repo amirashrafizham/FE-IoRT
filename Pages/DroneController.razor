@@ -1,0 +1,131 @@
+@page "/drone"
+@using System.Collections
+
+@inject HttpClient http
+
+<div class="container border border-3 rounded">
+
+    <div class="d-flex justify-content-center">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input type="button" class="btn btn-success" value="Drone Control Panel" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="justify-content-center">
+        <div class="d-flex justify-content-center">
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@MoveLeft Text="Turn Left" />
+            <RadzenButton style="width: 180px; background-color:#6c41ffcf; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Up Text="Up" />
+            <RadzenButton style="width: 180px; background-color:#6c41ffcf; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Down Text="Down" />
+            <RadzenButton style="width: 180px; background-color:#6c41ff94; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@MoveRight Text="Turn Right" />
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <RadzenButton style="width: 180px; background-color:#ff6d41; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Connect Text="Connect" />
+            <RadzenButton style="width: 180px; background-color:#479cc8; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@TakeOff Text="Take Off" />
+            <RadzenButton style="width: 180px; background-color:#e6c54f; margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Land Text="Land" />
+        </div>
+        <div class="justify-content-center">
+            <img src="images/drone.png" alt="" style="display:block; margin:auto;" width="250" height="200">
+        </div>
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@TurnCounterClockWise Text="Anti-Clockwise" />
+            <RadzenButton style="width: 180px; background-color:#414bffcf;  margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Forward Text="Forward" />
+            <RadzenButton style="width: 180px; background-color:#414bffcf;  margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@Reverse Text="Reverse" />
+            <RadzenButton style="width: 180px; background-color:#414bff94;  margin-right: 5px; margin-left:5px;"
+                IsBusy=@busy Click=@TurnClockWise Text="Clockwise" />
+        </div>
+    </div>
+    <br>
+</div>
+
+
+@code {
+
+    void OnChange(dynamic value, string name)
+    {
+        var str = value is IEnumerable ? string.Join(", ", value) : value;
+        Console.WriteLine(str);
+    }
+    bool busy;
+    protected async Task Up()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/MoveUp");
+        busy = false;
+    }
+    protected async Task Down()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/MoveDown");
+        busy = false;
+    }
+    protected async Task Forward()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/Forward");
+        busy = false;
+    }
+    protected async Task MoveRight()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/MoveRight");
+        busy = false;
+    }
+    protected async Task MoveLeft()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/MoveLeft");
+        busy = false;
+    }
+    protected async Task Reverse()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/Reverse");
+        busy = false;
+    }
+    protected async Task TurnClockWise()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/TurnClockWise");
+        busy = false;
+    }
+    protected async Task TurnCounterClockWise()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/TurnCounterClockWise");
+        busy = false;
+    }
+    protected async Task Connect()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/Connect");
+        busy = false;
+    }
+    protected async Task TakeOff()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/TakeOff");
+        busy = false;
+    }
+    protected async Task Land()
+    {
+        busy = true;
+        var result = await http.GetAsync("/Drone/Land");
+        busy = false;
+    }
+
+}
