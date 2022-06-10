@@ -1,4 +1,4 @@
-@page "/drone2"
+@page "/drone"
 @using System.Collections
 
 @inject HttpClient http
@@ -18,18 +18,15 @@
         <div class="d-flex justify-content-center">
             <RadzenButton
                 style="width: 180px; height:60px; border: 2px solid #ff6d41;background-color:#ff6d41; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Connect>
-                <img src="images/drone_connect.png" height="50" width="40" />
+                IsBusy=@busy Click=@Connect Text="Connect" class="rz-button-text">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px; border: 2px solid #479cc8;background-color:#479cc8; margin-right: 5px; margin-left:5px;"
                 IsBusy=@busy Click=@TakeOff Text="Take Off">
-                <img src="images/drone_takeoff.png" height="50" width="40" />
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px; border: 2px solid #e6c54f;background-color:#e6c54f; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Land>
-                <img src="images/drone_landing.png" height="50" width="40" />
+                IsBusy=@busy Click=@Land Text="Land">
             </RadzenButton>
         </div>
         <div class="justify-content-center">
@@ -39,46 +36,38 @@
         <div class="d-flex justify-content-center">
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@MoveLeft>
-                <img src="images/drone-left.png" height="50" width="40" />
+                IsBusy=@busy Click=@MoveLeft Text="Left">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Up>
-                <img src="images/up.png" height="50" width="40" />
+                IsBusy=@busy Click=@Up Text="Take Off">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Down>
-                <img src="images/down.png" height="50" width="40" />
+                IsBusy=@busy Click=@Down Text="Take Off">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@MoveRight>
-                <img src="images/drone-right.png" height="50" width="40" />
+                IsBusy=@busy Click=@MoveRight Text="Right">
             </RadzenButton>
         </div>
         <br>
         <div class="d-flex justify-content-center">
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@TurnCounterClockWise>
-                <img src="images/counter-clockwise.png" height="50" width="40" />
+                IsBusy=@busy Click=@TurnCounterClockWise Text="CCW">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Forward>
-                <img src="images/forward.png" height="50" width="40" />
+                IsBusy=@busy Click=@Forward Text="Forward">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@Reverse>
-                <img src="images/reverse.png" height="50" width="40" />
+                IsBusy=@busy Click=@Reverse Text="Reverse">
             </RadzenButton>
             <RadzenButton
                 style="width: 180px; height:60px;border: 4px solid #00DABD; background-color:#00DABD; margin-right: 5px; margin-left:5px;"
-                IsBusy=@busy Click=@TurnClockWise>
-                <img src="images/clockwise.png" height="50" width="40" />
+                IsBusy=@busy Click=@TurnClockWise Text="CW">
             </RadzenButton>
         </div>
     </div>
